@@ -33,7 +33,7 @@ class PostBase(BaseModel):
     creator_id: int
 
 
-class PostDisplay:
+class PostDisplay(BaseModel):
     image_url: str
     image_url_type: str
     caption: str

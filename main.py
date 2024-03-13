@@ -2,13 +2,14 @@ from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse, RedirectResponse
 from db import models
 from db.database import engine
-from routers import user
+from routers import user, post
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 api = FastAPI()
 
 api.include_router(user.router)
+api.include_router(post.router)
 
 
 models.Base.metadata.create_all(engine)
