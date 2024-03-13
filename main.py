@@ -14,7 +14,7 @@ api.include_router(post.router)
 
 models.Base.metadata.create_all(engine)
 
-# api.mount("/images", StaticFiles(directory="images"), name="images")
+api.mount("/images", StaticFiles(directory="images"), name="images")
 
 origin = ["http://localhost:3000"]
 

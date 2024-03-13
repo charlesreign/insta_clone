@@ -32,3 +32,21 @@ def create(request: PostBase, db: Session = Depends(get_db)):
             detail="Parameter image_url_type can only take va;ues of 'absolute' or 'relative'",
         )
     return db_post.create_post(db, request)
+
+
+@router.get("/all", response_model=List[PostDisplay])
+def posts(db: Session = Depends(get_db)):
+    return db_post.get_all(db)
+
+
+@router.post("/image")
+def upload_image(image: UploadFile = File(...)):
+    letter = string.ascii_letters
+    rand_str = "".join(random.choice(letter) for i in range(6))
+    new = f"_{rand_str}."
+    filename = new.join(image.filename.rsplit(".", 1))
+    path = f"images/{filename}"
+    with open(path, "w+b") as buffer:
+        shutil.copyfileobj(image.file, buffer)
+
+    return {"filename": path}
