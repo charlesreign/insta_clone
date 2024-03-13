@@ -1,0 +1,31 @@
+from fastapi import FastAPI, Request, status
+from fastapi.responses import JSONResponse, RedirectResponse
+from db import models
+from db.database import engine
+from routers import user
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+
+api = FastAPI()
+
+api.include_router(user.router)
+
+
+models.Base.metadata.create_all(engine)
+
+# api.mount("/images", StaticFiles(directory="images"), name="images")
+
+origin = ["http://localhost:3000"]
+
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=origin,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@api.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/docs", status_code=status.HTTP_301_MOVED_PERMANENTLY)
