@@ -35,4 +35,3 @@ class DbComment(Base):
     timestamp = Column(DateTime)
     post_id = Column(Integer, ForeignKey("Post.id"))
     post = relationship("DbPost", back_populates="comments")
-
