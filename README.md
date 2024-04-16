@@ -10,16 +10,16 @@ This application uses SQLite for it's database needs
 
 There are eight(8) main api endpoints exposed
 
-| API                   |Purpose
-|_______________________|________________________________________
-|/user/create           | endpoint for creating new user
-|/post/create           | endpoint for creating new post
-|/post/all              | endpoint for getting all posts
-|/post/image            | endpoint for uploading images
-|/post/delete/{id}      | endpoint for deleting post base on id
-|/login                 | login endpoint
-|/comment/create        | creating a comment on post endpoint
-|/comment/all/{post_id} | getting a comment based on id endpoint
+| API                   |Purpose                                    |
+|_______________________|___________________________________________|
+|/user/create           | endpoint for creating new user            |
+|/post/create           | endpoint for creating new post            |
+|/post/all              | endpoint for getting all posts            |
+|/post/image            | endpoint for uploading images             |
+|/post/delete/{id}      | endpoint for deleting post base on id     |
+|/login                 | login endpoint                            |
+|/comment/create        | creating a comment on post endpoint       |
+|/comment/all/{post_id} | getting a comment based on id endpoint    |
 
 
 ## __To setup project locally__
