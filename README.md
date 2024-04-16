@@ -1,4 +1,4 @@
-#__Pixagram Backend Service API__
+# __Pixagram Backend Service API__
 
 This is a python (Python 3.12.0) appication writen using the [FastApi](https://fastapi.tiangolo.com/) framework
 
