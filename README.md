@@ -11,7 +11,7 @@ This application uses SQLite for it's database needs
 There are eight(8) main api endpoints exposed
 
 | API                   |Purpose                                    |
-|_______________________|___________________________________________|
+|-----------------------|-------------------------------------------|
 |/user/create           | endpoint for creating new user            |
 |/post/create           | endpoint for creating new post            |
 |/post/all              | endpoint for getting all posts            |
