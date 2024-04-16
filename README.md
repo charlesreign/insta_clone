@@ -34,6 +34,6 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 ## __To run project__
-`
+```
 uvicorn main:api
-`
+```
