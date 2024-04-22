@@ -47,15 +47,15 @@ jobs:
     - name: Push the docker image
       run: docker push '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow:'${{github.sha}}'
 
-  deploy:
-    needs: build
-    runs-on: [aws-ec2]
-    steps:
-      - name: Pull image from docker hub
-        run: docker pull '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow:latest
+  # deploy:
+  #   needs: build
+  #   runs-on: [aws-ec2]
+  #   steps:
+  #     - name: Pull image from docker hub
+  #       run: docker pull '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow:latest
       
-      - name: Delte old container
-        run: docker rm -f '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow
+  #     - name: Delte old container
+  #       run: docker rm -f '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow
       
-      - name: Run docker container
-        run: docker run -d -p 8080:8080 --name pixagram-comtainer '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow
+  #     - name: Run docker container
+  #       run: docker run -d -p 8080:8080 --name pixagram-comtainer '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow
