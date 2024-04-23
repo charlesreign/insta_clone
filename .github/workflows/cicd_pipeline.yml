@@ -52,10 +52,10 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Pull image from docker hub
-        run: docker pull charliereign/pixagram:latest
+        run: sudo docker pull charliereign/pixagram:latest
       
       - name: Delte old container
-        run: docker rm -f charliereign/pixagram
+        run: sudo docker rm -f charliereign/pixagram
       
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name pixagram-comtainer charliereign/pixagram
+        run: sudo docker run -d -p 8080:8080 --name pixagram-comtainer charliereign/pixagram
