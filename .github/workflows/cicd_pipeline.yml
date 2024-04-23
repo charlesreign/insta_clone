@@ -39,23 +39,10 @@ jobs:
         pytest
     - uses: actions/checkout@v3
     - name: Build the FastAPI Docker image
-      run: docker build -t docker/pixagram:'${{github.sha}}' .
+      run: docker build -t '${{secrets.DOCKER_LOGIN}}'/pixagram:'${{github.sha}}' .
       
     - name: Login to docker
       run: docker login --username '${{secrets.DOCKER_LOGIN}}' --password '${{secrets.DOCKER_PASSWORD}}'
 
     - name: Push the docker image
-      run: docker push docker/pixagram:'${{github.sha}}'
-
-  # deploy:
-  #   needs: build
-  #   runs-on: [aws-ec2]
-  #   steps:
-  #     - name: Pull image from docker hub
-  #       run: docker pull '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow:latest
-      
-  #     - name: Delte old container
-  #       run: docker rm -f '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow
-      
-  #     - name: Run docker container
-  #       run: docker run -d -p 8080:8080 --name pixagram-comtainer '${{secrets.DOCKER_LOGIN}}'/fastapi-docker-workflow
+      run: docker push '${{secrets.DOCKER_LOGIN}}'/pixagram:'${{github.sha}}'
