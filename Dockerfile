@@ -1,5 +1,7 @@
 FROM python:3.10.14-alpine3.19
 
+EXPOSE 1993
+
 # work directory
 WORKDIR /code
 
