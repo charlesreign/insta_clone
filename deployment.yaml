@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pixagram
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: pixagram
+  template:
+    metadata:
+      labels:
+        app: pixagram
+    spec:
+      containers:
+      - name: pixagram
+        image: charliereign/pixagram
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 1993
