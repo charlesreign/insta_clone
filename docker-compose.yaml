@@ -1,0 +1,6 @@
+# services:
+#   web:
+#     image: charliereign/pixagram
+#     command: sh -c "uvicorn main:api --reload --port=8000 --host=8000"
+#     ports:
+#       - '8060:1993'

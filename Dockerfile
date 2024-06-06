@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY . /code
 
 # running command
-CMD ["uvicorn", "main:api", "--host", "127.0.0.1", "--port", "80"]
+CMD ["uvicorn", "main:api", "--host", "127.0.0.1", "--port", "1993"]
