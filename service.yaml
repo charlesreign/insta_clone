@@ -8,4 +8,4 @@ spec:
     app: pixagram
   ports:
   - port: 1993
-    targetPort: <Target Port>
+    targetPort: 1993

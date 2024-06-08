@@ -20,3 +20,6 @@ cover/
 
 # database
 insta.db
+
+# VScode
+.vscode
