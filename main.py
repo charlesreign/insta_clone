@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, Request, status, Depends
 from fastapi.responses import JSONResponse, RedirectResponse
 from db import models
 from db.database import engine
@@ -6,6 +6,7 @@ from routers import user, post, comment
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from auth import authentication
+from config import env
 
 api = FastAPI()
 
@@ -19,7 +20,8 @@ models.Base.metadata.create_all(engine)
 
 api.mount("/images", StaticFiles(directory="images"), name="images")
 
-origin = ["http://localhost:3000"]
+
+origin = [env.FRONT_END_BASE_URL]
 
 api.add_middleware(
     CORSMiddleware,

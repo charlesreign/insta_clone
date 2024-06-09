@@ -23,3 +23,5 @@ insta.db
 
 # VScode
 .vscode
+
+.env

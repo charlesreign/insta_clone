@@ -22,5 +22,6 @@
 #         # Ensure `random.choice` was called exactly once with `test_list`
 #         # mock_choice.assert_called_once_with(test_list)
 
+
 def test_app():
     assert True
