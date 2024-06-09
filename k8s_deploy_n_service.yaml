@@ -15,7 +15,7 @@ kind: Deployment
 metadata:
   name: pixagram
 spec:
-  replicas: 4
+  replicas: 5
   selector:
     matchLabels:
       app: pixagram
