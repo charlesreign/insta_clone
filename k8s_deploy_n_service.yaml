@@ -26,6 +26,7 @@ spec:
       containers:
       - name: pixagram
         image: charliereign/pixagram
+        imagePullPolicy: Always 
         resources:
           limits:
             memory: "128Mi"
