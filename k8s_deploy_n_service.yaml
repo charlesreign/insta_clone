@@ -26,7 +26,17 @@ spec:
       containers:
       - name: pixagram
         image: charliereign/pixagram
-        imagePullPolicy: Always 
+        env:
+        - name: FRONT_END_BASE_URL
+          value: "http://localhost:3000"
+        - name: SQLALCHEMY_DATABASE_URL
+          value: "sqlite:///./insta.db"
+        - name: SECRET_KEY
+          value: "77407c7339a6c00544e51af1101c4abb4aea2a31157ca5f7dfd87da02a628107"
+        - name: ALGORITHM
+          value: "HS256"
+        - name: ACCESS_TOKEN_EXPIRE_MINUTES
+          value: "5"
         resources:
           limits:
             memory: "128Mi"
